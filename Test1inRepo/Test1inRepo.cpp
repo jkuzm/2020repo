@@ -1,11 +1,17 @@
 // Test1inRepo.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>
+#include "Fraction.h"
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Fraction a(2, 3), b(5, 2), c(4, 3);
+
+    c = a * b;
+    c.print();
+
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
