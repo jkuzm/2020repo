@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <deque>
 #include <queue>
+#include <utility>
 
 int main()
 {
@@ -46,6 +47,19 @@ int main()
         res ^= *i;
     }
     std::cout << "found one odd num: " << res;
+    std::vector<std::pair<int, int>> pair_input{ {1,10},{3,30},{2,20},{2,25} };
+    //lambda function for prioritizing function
+    auto cmp2 = [](std::pair<int, int> pr1, std::pair<int, int> pr2) {return(pr1.first < pr2.first); };
+    std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, decltype(cmp2)> myq2(cmp2);
+    for (auto i : pair_input)
+        myq2.push(i);
+    std::cout << "\nQueue sorted by priority: ";
+    while (!myq2.empty()) {
+        auto tmppr = myq2.top();
+        std::cout << myq2.top().second << " ";
+        myq2.pop();
+    }
+    std::cout << std::endl;
     return 0;
 }
 
