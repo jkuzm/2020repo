@@ -32,9 +32,16 @@ void push(Node** head_ref, int val) {
     (*head_ref) = new_node;
 }
 
+void printLinksInList(Node* headNode) {
+    int circuitBreak = 20;
+    for (Node* iter = headNode; iter != NULL &&  iter->next != NULL && --circuitBreak > 0; iter = iter->next) {
+        cout << "Node " << iter->data << " --> " << iter->next->data << endl;
+    }
+}
+
 void detectLoop(Node* list) {
     Node* slow_p = list, * fast_p = list;
-    cout << "slow_p data " << slow_p->data << " fast_p data " << fast_p->data << endl;
+    cout << "\nslow_p data " << slow_p->data << " fast_p data " << fast_p->data << endl;
 
     int it = 0;
     bool foundLoop = false;
@@ -46,7 +53,7 @@ void detectLoop(Node* list) {
         it++;
         if (slow_p == fast_p) {
             cout << "slow_p data " << slow_p->data << " fast_p data " << fast_p->data << endl;
-            cout << "Found loop in iteration : " << it << endl;
+            cout << "Found a loop in iteration : " << it << endl;
             foundLoop = true;
             break;
         }
@@ -58,18 +65,17 @@ void detectLoop(Node* list) {
         cout << "Not found loop after iteration : " << it << endl;
     }
     else {
-        //cout << "Now - looking for a val of position where ponter is skewed: ";
+        cout << "Now - looking for a val of position where ponter is skewed: " << endl;
         //according to Floyds algorithm rule: now keeping fast_p, z-ing slow_p and
         //moving one step at a time for each:
         //This 2nd part of algorithm - to find a position of a cycle - doesn't work for me as 2 cycles meet in pos 0
         slow_p = list;
         while(fast_p != slow_p) {
+            cout << "slow_p data " << slow_p->data << " fast_p data " << fast_p->data << endl;
             slow_p = slow_p->next;
             fast_p = fast_p->next;
-            //cout << "slow_p data " << slow_p->data << " fast_p data " << fast_p->data << endl;
-            break;
         }
-        //cout << "Found a cycle in a Node with value : " << slow_p->data << endl;
+        cout << "Found a cycle in a Node with value : " << slow_p->data << endl;
     }
 
 }
@@ -93,11 +99,15 @@ int main()
     push(&head, 45);
     push(&head, 50);
     push(&head, 55);
-
+    printLinksInList(head);
 
     //for debug we create a loop:
-    head->next->next->next->next->next->next->next->next = head;
-    //p of val 15 is skewed
+    Node * cycled_node_p = head->next->next->next->next->next->next->next->next->next->next;
+    cycled_node_p->next = head->next->next;
+    cout << "we insert wrong link into element with value : " << cycled_node_p->data << endl;
+    cout << "after creating  this cycle:" << endl;
+    printLinksInList(head);
+
     detectLoop(head);
 }
 

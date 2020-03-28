@@ -43,5 +43,5 @@ radix sort, inside - find number of digit in a number
 ArrayAlgs -
 find 1 missing number
 find N missing numbers using bitset
-reverse array without using cursion
+reverse array without using recursion
 find all pairs of integers in array whose sum is equal to a given number
