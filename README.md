@@ -83,3 +83,9 @@ StringAlgs -
 // using search in a str+str (concatenate to itself and search in a big one 
 // 12. How do you check if a given string is a palindrome ? (solution)
 //  in DataStrAlgorTraining
+
+BinTreeAlgs
+simple BST (binary search tree) to create, getMinValue,
+printLeafNodes.
+As of 3/29, left with an issue (looks like corruption)
+when calculated recursively height of tree.
