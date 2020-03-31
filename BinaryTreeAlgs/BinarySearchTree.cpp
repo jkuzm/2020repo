@@ -1,4 +1,5 @@
 #include <iostream>
+
 // curtesy of https://medium.com/@13dipty/binary-search-tree-implementation-in-c-537b9a9cedf8
 // print nodes in level order - curtesy of https://www.geeksforgeeks.org/level-order-tree-traversal/
 
@@ -111,9 +112,9 @@ public:
 
 	void printLevelOrder() {
 		BST* root = this;
-		int tree_hight = hight(root);
-		std::cout << "tree hight: " << tree_hight << std::endl;
-		/*for (int level = 0; level < tree_hight; ++level) {
+		int tree_height = height(root);
+		std::cout << "tree height: " << tree_height << std::endl;
+		/*for (int level = 0; level < tree_height; ++level) {
 			printGivenLevel(root, level);
 		}*/
 		std::cout << std::endl;
@@ -130,26 +131,24 @@ private:
 		printLeafNodes(node->right);
 	}
 
-	int hight(BST* node) {
-		int res = 0;
+	int height(BST* node) {
+		
 		if (node == NULL) {
-			res = 0;
+			std::cout << "height for NULL node:  0";
+			return 0;
 		}
 		else {
-			int lhight = hight(node->left);
-			std::cout << "node val: " << node->value << " lhight here: " << lhight << std::endl;
-			int rhight = hight(node->right);
-			std::cout << "node val: " << node->value << " rhight here: " << rhight << std::endl;
-
-			if (lhight > rhight) {
-				res = lhight + 1;
+			int lheight = height(node->left);
+			int rheight = height(node->right);
+			if (lheight > rheight) {
+				std::cout << "node val: " << node->value << " ret lheight here: " << lheight << std::endl;
+				return lheight + 1;
 			} 
 			else {
-				res = rhight + 1;
+				std::cout << "node val: " << node->value << " ret rheight here: " << rheight << std::endl;
+				return rheight + 1;
 			}
 		}
-		std::cout << "node val: " << node->value << " hight here: " << res << std::endl;
-		return res;
 	}
 
 	void printGivenLevel(BST* node, int level) {
