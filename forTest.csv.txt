@@ -1,0 +1,3 @@
+Name,Color,Age
+Julia,Red,30
+Liza,Blue,20

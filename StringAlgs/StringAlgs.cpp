@@ -170,6 +170,13 @@ void if_two_strings_are_a_rotation_of_each_other(string str1, string str2) {
         cout << " are NOT a rotation of each other" << endl;
 }
 
+void printReversedStr(char str[], int size) {
+    if (size <= 0)
+        return;
+    printReversedStr(&str[1], size -1);
+    cout << str[0];
+}
+
 int main()
 {
     std::cout << "Hello World!\n";
@@ -198,6 +205,10 @@ int main()
     char nnn[] = "How do you reverse words in a given sentence";
     reverseWordsInSentence(nnn);
     if_two_strings_are_a_rotation_of_each_other("abracad abra", "adabraabrac");
+    int str5_size = sizeof(str5) / sizeof(str5[0]);
+    cout << "Lets reverse string: " << str5 << " result string is: ";
+    printReversedStr(str5, str5_size - 1);
+    cout << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

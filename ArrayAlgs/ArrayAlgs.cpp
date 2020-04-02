@@ -65,6 +65,20 @@ void printPairsWithCertainSum(int arr[], const int size, const int sum) {
     }
 }
 
+int generateFibonacciNum(int n) {
+    if (n <= 1)
+        return n;
+    return generateFibonacciNum(n - 1) + generateFibonacciNum(n - 2);
+    
+
+}
+typedef int(*gen_func)(int);
+
+//from C++11,14 new features (at 18.25) https://www.youtube.com/watch?v=TK_SfTfxaxc&list=PLUEkFqfmK1b84rb3PqNgYlA4YVK_AZJ6y
+//using begin(), end() even on regular arrays
+
+bool elementGT5(int elem) { return elem > 5; };
+
 int main()
 {
     std::cout << "Hello World!\n";
@@ -82,6 +96,21 @@ int main()
     cout << "Missing number: " << find1missingNumber(myarr2, arr_size) << endl;
     findNmissingDigits(myarr2, arr_size);
     printPairsWithCertainSum(myarr2, arr_size, 10);
+    cout << "create 15 first numbers in fibonacci series" << endl;
+    //auto fill_array = [](auto& arr, int len, int val) {for (int i = 0; i < len; ++i) arr[i] = val; };
+    //fill_array(chars_of_str1, chars_size, 0);
+    int fibonacciSeries[15];
+    for (int i = 0; i < 15; i++)
+        fibonacciSeries[i] = generateFibonacciNum(i);
+    printArray(fibonacciSeries, 15);
+    cout << "Array: " << endl;
+    for (auto i : myarr)
+        std::cout << i << " ";
+    auto firstGT5 = find_if(begin(myarr), end(myarr), elementGT5);
+    cout << "First element greater than 5 : " << firstGT5 << endl;
+    // this doesn't work :(
+
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

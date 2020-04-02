@@ -45,6 +45,7 @@ find 1 missing number
 find N missing numbers using bitset
 reverse array without using recursion
 find all pairs of integers in array whose sum is equal to a given number
+recursive calc of fibonacci number
 
 ArraAlgs2 -
 duplicate number on int array, solution on sorted array
@@ -83,6 +84,7 @@ StringAlgs -
 // using search in a str+str (concatenate to itself and search in a big one 
 // 12. How do you check if a given string is a palindrome ? (solution)
 //  in DataStrAlgorTraining
+13. quick print of string in reverse order with recursive
 
 BinTreeAlgs
 simple BST (binary search tree) to create, getMinValue,
