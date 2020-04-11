@@ -18,6 +18,21 @@ void permute(string str, int l, int r) {
         }
     }
 }
+//hell, I can't get it, let's just repeate in hope to remember
+void permute2(string str, int l, int r) {
+    if (l == r) //it's base in recursions
+        cout << "l==r=" << l << " " << str << endl;
+    else {
+        for (int i = l; i <= r; i++) {
+            swap(str[l], str[i]);
+            cout << "prior premute with i" << i << " str: " << str << endl;
+            permute(str, l + 1, r);
+            cout << "after premute with i" << i << " str: " << str << endl;
+            swap(str[i], str[l]);
+
+        }
+    }
+}
 
 class Node {
 public:
@@ -84,7 +99,7 @@ int main()
 {
     std::cout << "Hello World!\n";
     string str = "ABC";
-    permute(str, 0, str.size() - 1);
+    permute2(str, 0, str.size() - 1);
 
     Node* head = NULL;
 

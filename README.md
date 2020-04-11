@@ -91,3 +91,35 @@ simple BST (binary search tree) to create, getMinValue,
 printLeafNodes.
 As of 3/29, left with an issue (looks like corruption)
 when calculated recursively height of tree.
+
+pythonViaPycharm1 -
+testDecorator.py
+fibonacci series via function generator (yield)
+decorator pattern 2 usages
+use of *args **kwargs
+
+PyInheritanceUseSuper -
+superUseForINit.py
+class inheritance and super() as access to super class
+numpy
+2 ways to initialize numpy array
+print 2 of largest values in descenting order [-2:][::-1]
+pandas DataFrame
+requests to get data from link 
+and not properly formatted pd.read_csv
+simple lambda use
+replace all odd numbers of array with -1
+print common elements of 2 arrays
+pd.Series and lambda to capitalize all words in series
+lambda for 2 params, x=n takes the outer as def value
+using lambda as filter
+
+Another25questions -
+tricky solutions to find if class is derived from, template
+and if class is same as, also template
+// which would otherwise be solved by std::is_base_of
+// another trick is an analog of std::is_same, if class is same
+sample of try/throw/catch
+
+FunctionOverriding -
+to show inheritance, and Interface class (pure virtual functions)

@@ -49,6 +49,17 @@ int main()
         myq.pop();
     }
     std::cout << "\n";
+
+    std::priority_queue<int, std::vector<int>> myq0;
+    std::cout << "queue with default sorter function" << std::endl;
+    for (auto i : queue_input)
+        myq0.push(i);
+    while(!myq.empty()) {
+        std::cout << myq0.top() << " ";
+        myq0.pop();
+    }
+    std::cout << "\n";
+
     // Function to return the only odd 
     // occurring element 
     std::vector<int> v_oneoddnum { 1,2,3,6,4,5,1,2,3,4,5 };
@@ -61,7 +72,8 @@ int main()
     std::cout << "found one odd num: " << res;
     std::vector<std::pair<int, int>> pair_input{ {1,10},{2,25},{3,30},{2,20} };
     //lambda function for prioritizing function
-    auto cmp2 = [](std::pair<int, int> pr1, std::pair<int, int> pr2) {return(pr1.first < pr2.first); };
+    auto cmp2 = [](std::pair<int, int> pr1, std::pair<int, int> pr2) 
+                                    {return(pr1.first > pr2.first); };
     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, decltype(cmp2)> myq2(cmp2);
     for (auto i : pair_input)
         myq2.push(i);
@@ -71,6 +83,21 @@ int main()
         std::cout << myq2.top().second << " ";
         myq2.pop();
     }
+    //retyped later, memory exersize
+    auto cmp3 = [](std::pair<int, int>pr1, std::pair<int, int>pr2)
+    {return(pr1.first > pr2.first); };
+
+    std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, decltype(cmp3)>myq3(cmp3);
+
+    for (auto i : pair_input)
+        myq3.push(i);
+    std::cout << "\nQueue mq3 sorted by priority: ";
+
+    while (!myq3.empty()) {
+        std::cout << myq3.top().second << " ";
+        myq3.pop();
+    }
+    //1st priority msg comes on top etc, so - Queue sorted by priority: 10 25 20 30
     std::cout << std::endl;
     //will add some samples from slidesof yutube "A Tutorial Introduction to C++11 & 14 Part 1"
     // https://github.com/boostcon/cppnow_presentations_2014/blob/master/files/tutorial_intro_cpp_11_14.pdf

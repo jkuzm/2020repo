@@ -78,7 +78,7 @@ int main()
     cout << "for array: ";
     for (const auto& v : numbers)
         cout << v << " ";
-    cout << "\n end missing number is : " << misNum << endl;
+    cout << "\n and missing number is : " << misNum << endl;
 
     //how to swap 2 integers
     int x = 2, y = 3;
@@ -133,7 +133,7 @@ int main()
     //char pal[] = "abba";
     //check if string is a palindrome
     string resultstr = isPalindrome(pal, 0, sizeof(pal) - 2) ? " is a palindrome." : " is NOT a palindrome.";
-    cout << "String " << pal << resultstr << endl;
+    cout << "String " << pal << " " << resultstr << endl;
    
     // First non-repeating character using one traversal of string
     // https://www.geeksforgeeks.org/first-non-repeating-character-using-one-traversal-of-string-set-2/
