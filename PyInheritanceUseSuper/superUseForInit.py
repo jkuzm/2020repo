@@ -87,3 +87,25 @@ def even_fn(x):
     else:
         return False
 print(list(filter(even_fn,[1,2,3,4,6,7,5,8])))
+
+
+def reverseStr(str):
+    if len(str) == 0:
+        return str
+    return reverseStr(str[1:])+str[0]
+mystr = 'andwhat?'
+print(reverseStr(mystr))
+
+def isPalindrome(str,l,r):
+    if(r <= l):
+        return True
+    if(str[r] != str[l]):
+        return False
+    else:
+        return isPalindrome(str,l+1,r-1)
+mypal = '!arosaupalanalapuasora!'
+if isPalindrome(mypal,0,len(mypal)-1):
+    print('str ',mypal,' is palindrome')
+else:
+    print('str ', mypal, ' is NOT palindrome')
+

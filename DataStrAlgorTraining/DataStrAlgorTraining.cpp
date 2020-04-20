@@ -19,7 +19,7 @@ void reverse(string str) {
 
 bool isPalindrome(char str[], int start, int end) {
     //cout << "checking positions " << start << " and " << end << endl;
-    if (start == end) {
+    if (end <= start) {
         //cout << "[" << str[start] << "] & ret true" << endl;
         return true;
     }
@@ -129,7 +129,7 @@ int main()
     reverse(mystr);
     cout << endl;
 
-    char pal[] = "arosaupalanalapuasora";
+    char pal[] = "arosaupalanalapuasora!";
     //char pal[] = "abba";
     //check if string is a palindrome
     string resultstr = isPalindrome(pal, 0, sizeof(pal) - 2) ? " is a palindrome." : " is NOT a palindrome.";

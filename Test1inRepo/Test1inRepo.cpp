@@ -2,7 +2,9 @@
 //
 
 #include "Fraction.h"
+#include <fstream>
 
+using namespace std;
 
 int main()
 {
@@ -10,7 +12,31 @@ int main()
 
     c = a * b;
     c.print();
+    char str2file[] = "It\'s a test\nto write into file.";
+    ofstream fout;
+    fout.open("test.txt");
+    fout.write(str2file, sizeof(str2file));
+    fout.close();
+    int strlen = sizeof(str2file) / sizeof(str2file[0]);
+    cout << "size of str written into file: " << strlen << endl;
 
+    ifstream fin;
+    fin.open("test.txt");
+    
+    fin.seekg(0, fin.end);
+    int len = fin.tellg();
+    cout << "size of file text is " << len << endl;
+    fin.seekg(0, fin.beg);
+    char* mytext = new char[len];
+    fin.read(mytext, len);
+    fin.close();
+    cout << "we read from file:" << endl;
+    cout.write(mytext, len-2);
+    cout << endl;
+    cout << "Last 3 letters in mystr up to len: " << 
+        mytext[len - 3] << mytext[len - 2]<< mytext[len - 1] << endl;
+    //note to myself, last actual letter from text is in pos [len-3]
+    delete[] mytext;
     return 0;
 }
 
